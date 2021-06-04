@@ -7,18 +7,25 @@ from the iterable as soon as an element is a positive number.
 
 def iter_func(iterable):
     iterator = iter(iterable)
+    count = 0
     while True:
         try:
             element = next(iterator)
             if(element > 0):
-                print(element)
+                count2 = 0
+                while count2 < count:
+                    iterable.pop(0)
+                    count2 += 1
+                break 
+            else:
+                count += 1
         except StopIteration:
             break
 
 
-list1 = [-1,2,5,-3,-8,10,-5,0]
+list1 = [-1,-2,-3,4,-10,2,0,5,12]
 iter_func(list1)
-
+print(list1)
 ##########################################################################################
 
 import itertools as it
